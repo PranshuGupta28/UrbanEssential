@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --canvas: 248 246 242; /* Ivory #F8F6F2 */
+    --surface: 255 255 255;
+    --stone: 244 244 243; /* Pale Stone Oat #F4F4F3 */
+    --ash: 33 29 27; /* Charcoal #211D1B */
+    --ink: 33 29 27; /* Charcoal #211D1B */
+    --muted: 113 113 122; /* #71717A */
+    --line: 233 227 218; /* Sand #E9E3DA */
+    --rust: 193 91 67; /* Terracotta #C15B43 */
+  }
+
+  .dark {
+    color-scheme: dark;
+    --canvas: 12 10 9; /* #0C0A09 warm near-black */
+    --surface: 28 25 23; /* #1C1917 */
+    --stone: 41 37 36; /* #292524 */
+    --ash: 28 25 23;
+    --ink: 250 250 249; /* #FAFAF9 */
+    --muted: 168 162 158; /* #A8A29E */
+    --line: 68 64 60; /* #44403C */
+    --rust: 217 114 83; /* #D97253 brighter rust for dark */
+  }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+  body {
+    @apply bg-canvas font-body text-ink antialiased;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+  }
+  ::selection { @apply bg-rust/20 text-ink; }
+  :focus-visible { outline: 2px solid rgb(var(--rust)); outline-offset: 3px; border-radius: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-container px-6; }
+  .section { @apply py-20 md:py-32; }
+  .hairline { @apply border-line; }
+  .eyebrow { @apply font-body text-[11px] font-semibold uppercase tracking-[0.1em] text-rust; }
+  .tag { @apply inline-block rounded-full bg-stone px-3 py-1 font-body text-[11px] font-medium tracking-normal text-muted; }
+
+  .card {
+    @apply rounded-card border border-line bg-surface p-6 shadow-micro;
+    transition: transform 400ms cubic-bezier(0.16,1,0.3,1), box-shadow 400ms cubic-bezier(0.16,1,0.3,1);
+  }
+  .card:hover { transform: translateY(-4px); @apply shadow-soft; }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-semibold;
+    transition: transform 400ms cubic-bezier(0.16,1,0.3,1), background-color 300ms, color 300ms, border-color 300ms, box-shadow 300ms;
+  }
+  .btn:disabled { @apply opacity-60; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { @apply bg-rust text-white hover:bg-rust/90; }
+  .btn-outline { @apply border border-line bg-transparent text-ink hover:border-ink; }
+  .btn-ghost { @apply px-0 py-0 font-medium text-ink underline decoration-line underline-offset-8 hover:decoration-rust hover:text-rust; }
+  .btn-sm { @apply px-4 py-2 text-sm; }
+
+  .input {
+    @apply mt-1.5 w-full rounded-[4px] border border-line bg-surface px-3.5 py-2.5 text-[15px] font-light text-ink placeholder:text-muted/70;
+  }
+  .input:focus { @apply border-rust outline-none; }
+  .label { @apply block text-sm font-normal text-muted; }
+  .chip { @apply tag; }
+}
+
+.hairline-y > * + * { @apply border-t border-line; }
+.lang-hi body, .lang-hi h1, .lang-hi h2, .lang-hi h3, .lang-hi h4 { font-family: var(--font-deva), var(--font-inter), system-ui, sans-serif; }

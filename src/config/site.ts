@@ -2,10 +2,10 @@ export const site = {
   name: 'Urban Essential',
   tagline: 'Build. Manage. Grow.',
   descriptor: 'Digital growth for local business',
-  whatsapp: '919999999999',
-  phone: '+919999999999',
-  phoneDisplay: '+91 99999 99999',
-  email: 'hello@urbanessential.in',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://urbanessential.in',
+  whatsapp: '919826474987',
+  phone: '+919826474987',
+  phoneDisplay: '+91 9826474987',
+  email: 'urbanessentials57@gmail.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://urbanessential.live',
   leadEndpoint: process.env.NEXT_PUBLIC_LEAD_ENDPOINT ?? ''
 };

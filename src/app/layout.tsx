@@ -18,10 +18,33 @@ const description = 'Urban Essential helps local shops, restaurants, salons, gym
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: 'Urban Essential | Take Your Business From Offline to Online', template: '%s | Urban Essential' },
+
+  title: {
+    default: 'Urban Essential | Take Your Business From Offline to Online',
+    template: '%s | Urban Essential'
+  },
+
   description,
-  openGraph: { title: 'Urban Essential | Build. Manage. Grow.', description, url: site.url, siteName: site.name, locale: 'en_IN', type: 'website' },
-  twitter: { card: 'summary_large_image', title: 'Urban Essential | Build. Manage. Grow.', description },
+
+  verification: {
+    google: 'MmugSNUNKxQkLQazV-D3t83iYfiAu1YvjpEgYLWFzQQ'
+  },
+
+  openGraph: {
+    title: 'Urban Essential | Build. Manage. Grow.',
+    description,
+    url: site.url,
+    siteName: site.name,
+    locale: 'en_IN',
+    type: 'website'
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Urban Essential | Build. Manage. Grow.',
+    description
+  },
+
   alternates: { canonical: '/' }
 };
 
